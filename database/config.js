@@ -1,20 +1,30 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+
 
 const dbConnection = async() => {
 
     try {
-        await mongoose.connect( process.env.MONGODB_CNN, {
-            useNewUrlParser : true,
-            useUnifiedTopology: true,
-        });
 
-        console.log('base de datos online');
+        await mongoose.connect( process.env.MONGODB_CNN, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false
+        });
+    
+        console.log('Base de datos online');
+
     } catch (error) {
-        //throw new Error('Error al iniciar base de datos');
-        console.log(error)
+        console.log(error);
+        throw new Error('Error a la hora de iniciar la base de datos');
     }
+
+
 }
 
+
+
 module.exports = {
-    dbConnection,
+    dbConnection
 }
