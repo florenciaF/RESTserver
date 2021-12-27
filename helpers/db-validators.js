@@ -35,6 +35,7 @@ const existeCategoriaPorId = async( id ) => {
     if ( !existeCat ) {
         throw new Error(`El id  ${ id } de la categoria no existe`);
     }
+    return true;
 }
 
 const existeProductoPorId = async( id ) => {
@@ -47,6 +48,19 @@ const existeProductoPorId = async( id ) => {
 }
 
 
+/**
+ * Validar colecciones permitidas
+ */
+ const coleccionesPermitidas = ( coleccion = '', colecciones = []) => {
+
+    const incluida = colecciones.includes( coleccion );
+    if ( !incluida ) {
+        throw new Error(`La colección ${ coleccion } no es permitida, ${ colecciones }`);
+    }
+    return true;
+}
+
+
 
 
 module.exports = {
@@ -54,6 +68,7 @@ module.exports = {
     emailExiste,
     existeUsuarioPorId,
     existeCategoriaPorId,
-    existeProductoPorId
+    existeProductoPorId,
+    coleccionesPermitidas
 }
 
