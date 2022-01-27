@@ -2,7 +2,7 @@
 
 RestServer en Node
 
-Contenido
+### Contenido
 
 -Alcances del REST server
 -Autenticación de usuario-JWT
@@ -11,7 +11,7 @@ Contenido
 -Carga de archivos
 
 
-Instalación
+### Instalación 🔧
 
 ```npm install``` para reconstruir los módulos de Node.
 
